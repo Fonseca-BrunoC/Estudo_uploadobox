@@ -1,0 +1,25 @@
+<FileChooser>:
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: None
+        height: 30
+        Button:
+            text: 'Load'
+            on_release: root.show_load()
+
+<LoadDialog>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: root.pos
+        size: root.size
+        FileChooserIconView:
+            id: loadfile
+            on_selection: root.load(loadfile.path, loadfile.selection)
+
+        BoxLayout:
+            pos_hint_x: 0.5
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
